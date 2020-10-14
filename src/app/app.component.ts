@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { RecipesService } from './recipes/recipes.service';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 @Component({
   selector: 'app-root',
+  styleUrls: ['./app.component.css'],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  providers: [ShoppingListService, RecipesService],
 })
 export class AppComponent {
-  title = 'my-first-app';
+  public loadedFeature = 'recipe';
+  public onNavigate(feature: string): void {
+    this.loadedFeature = feature;
+  }
 }
